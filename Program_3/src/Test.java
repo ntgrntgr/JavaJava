@@ -79,15 +79,12 @@ public class Test {
 		//print out all cars
 		dealer.printAllCars();
 		
-		//printing out the total retail price for the custom cars with a retail price
-		//System.out.println(customCar5.getRetailPrice());
-		//System.out.println(dealer.getCars()[5]);
 		
-		
+		//print out the total retail price for all available cars
 		System.out.println(dealer.getTotalInventoryPrice());
 		
 		
-		//remove one car to check if the method id working properly
+		//remove one car to check if the method is working properly
 		dealer.removeCar(customCar5);
 		System.out.println(dealer.getTotalInventoryPrice());
 		
