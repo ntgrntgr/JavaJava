@@ -30,8 +30,10 @@ public class DiceTest {
 		//System.out.println(diceBag2.getNumberOfDice());
 		//diceBag2.diceRollFrequency();
 		
-		Die die = new Die(7);
-		die.dieRollFrequency();
+		//Die die = new Die(7);
+		//die.dieRollFrequency();
+		
+		
 		
 		
 	}
