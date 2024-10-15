@@ -1,4 +1,4 @@
-package PD;
+package diceRollerPD.imports;
 /**
  * NumberOfFacesRangeException is a class that defines the exception when usser enters faces less or equal than 2
  * @package PD

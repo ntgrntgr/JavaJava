@@ -1,5 +1,5 @@
-package Test;
-import	UI.DieInterface;
+package diceRollerUI;
+import	diceRollerUI.DieInterface;
 import java.awt.event.*;
 import javax.swing.*;
 public class DieInterfaceTest {

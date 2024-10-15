@@ -1,4 +1,4 @@
-package PD;
+package diceRollerPD.imports;
 /**
  * NumberOfFacesRangeException is a class that defines the exception when the user rolls the dice when it is empty
  * @package PD

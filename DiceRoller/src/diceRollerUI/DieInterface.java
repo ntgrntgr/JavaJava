@@ -1,5 +1,5 @@
-package UI;
-import PD.*;
+package diceRollerUI;
+import diceRollerPD.*;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;

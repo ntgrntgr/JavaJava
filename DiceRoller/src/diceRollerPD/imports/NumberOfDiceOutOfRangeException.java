@@ -1,4 +1,4 @@
-package PD;
+package diceRollerPD.imports;
 /**
  * NumberOfDiceRangeException is a class that defines the exception when user enters faces less or equal to 0
  * @package PD
