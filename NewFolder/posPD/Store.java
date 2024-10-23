@@ -7,20 +7,21 @@ import java.util.*;
  */
 public class Store {
 
-	private String number;
+	private Long number;
 	private String name;
-	private Collection<Session> sessions;
-	private TaxCategory taxCategories;
-	private Collection<Item> items;
-	private Collection<Cashier> cashiers;
-	private Collection<Register> registers;
-	private Collection<UPC> upcs;
+	private ArrayList<Session> sessions;
+	private ArrayList<TaxCategory> taxCategories;
+	private TreeMap<Long,Item> items;
+	private TreeMap<Long,Cashier> cashiers;
+	private TreeMap<Long,Register> registers;
+	private ArrayList<UPC> upcs;
+	private ArrayList<Long> cashierIDs;
 
-	public String getNumber() {
+	public Long getNumber() {
 		return this.number;
 	}
 
-	public void setNumber(String number) {
+	public void setNumber(Long number) {
 		this.number = number;
 	}
 
@@ -43,7 +44,7 @@ public class Store {
 	 * @param numberr
 	 * @param name
 	 */
-	public Store(String numberr, String name) {
+	public Store(Long numberr, String name) {
 		// TODO - implement Store.Store
 		throw new UnsupportedOperationException();
 	}

@@ -29,8 +29,8 @@ public class PromoPrice extends Price {
 	 * 
 	 * @param date
 	 */
-	public boolean idEffective(LocalDate date) {
-		// TODO - implement PromoPrice.idEffective
+	public boolean isEffective(LocalDate date) {
+		// TODO - implement PromoPrice.isEffective
 		throw new UnsupportedOperationException();
 	}
 

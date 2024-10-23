@@ -5,14 +5,15 @@ package posPD;
  */
 public class Register {
 
-	private String number;
+	private Long number;
+	
 	private CashDrawer cashDrawer;
 
-	public String getNumber() {
+	public Long getNumber() {
 		return this.number;
 	}
 
-	public void setNumber(String number) {
+	public void setNumber(Long number) {
 		this.number = number;
 	}
 
@@ -26,7 +27,7 @@ public class Register {
 	 * params register for the register number
 	 * @param number
 	 */
-	public Register(String number) {
+	public Register(Long number) {
 		// TODO - implement Register.Register
 		throw new UnsupportedOperationException();
 	}

@@ -12,7 +12,7 @@ import java.util.*;
 public class Sale {
 
 	private Payment payments;
-	private Collection<SaleLineItem> saleLineItems;
+	private ArrayList<SaleLineItem> saleLineItems;
 	private LocalDateTime dateTime;
 	private boolean taxFree;
 

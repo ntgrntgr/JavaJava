@@ -7,19 +7,19 @@ import java.util.*;
  */
 public class Item {
 
-	private String number;
+	private Long number;
 	private String description;
 	private SaleLineItem saleLineItems;
-	private Collection<UPC> uPCs;
-	private Price prices;
+	private ArrayList<UPC> uPCs;
 	private TaxCategory taxCategory;
-	private Price prices2;
+	//private Price prices2;
+	private TreeMap<Long,Price> prices;
 
-	public String getNumber() {
+	public Long getNumber() {
 		return this.number;
 	}
 
-	public void setNumber(String number) {
+	public void setNumber(Long number) {
 		this.number = number;
 	}
 
@@ -42,7 +42,7 @@ public class Item {
 	 * @param number
 	 * @param description
 	 */
-	public Item(String number, String description) {
+	public Item(Long number, String description) {
 		// TODO - implement Item.Item
 		throw new UnsupportedOperationException();
 	}
@@ -52,8 +52,9 @@ public class Item {
 	 * params price for the price
 	 * @param price
 	 */
-	public void addPrice(Price price) {
-		// TODO - implement Item.addPrice
+	public void addPrice(Price price, String description) {
+		// 
+		
 		throw new UnsupportedOperationException();
 	}
 
@@ -65,6 +66,10 @@ public class Item {
 	public void removePrice(Price price) {
 		// TODO - implement Item.removePrice
 		throw new UnsupportedOperationException();
+	}
+	public String toString() {
+		// TODO - implement Item.removePrice
+				throw new UnsupportedOperationException();
 	}
 
 }

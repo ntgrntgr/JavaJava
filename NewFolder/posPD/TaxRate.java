@@ -8,6 +8,7 @@ import java.time.LocalDate;
  */
 public class TaxRate {
 
+	private String description;
 	private BigDecimal taxRate;
 	private LocalDate effectiveDate;
 

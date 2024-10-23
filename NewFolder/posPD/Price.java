@@ -11,7 +11,9 @@ public class Price {
 
 	private BigDecimal price;
 	private LocalDate effectiveDate;
-	private Collection<Item> item;
+	private ArrayList<Item> item;
+	private String description;
+	private Long number;
 
 	public BigDecimal getPrice() {
 		return this.price;

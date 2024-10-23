@@ -12,7 +12,7 @@ public class Person {
 	private String zip;
 	private String phone;
 	private String sSN;
-	private Cashier cashier;
+	
 
 	public String getName() {
 		return this.name;
@@ -84,6 +84,30 @@ public class Person {
 	public Person(String name, Person person) {
 		// TODO - implement Person.Person
 		throw new UnsupportedOperationException();
+	}
+	
+
+	/**
+	 * @param name
+	 * @param address
+	 * @param city
+	 * @param state
+	 * @param zip
+	 * @param phone
+	 * @param sSN
+	 * @param cashier
+	 */
+	public Person(String name, String address, String city, String state, String zip, String phone, String sSN
+			) {
+		super();
+		this.name = name;
+		this.address = address;
+		this.city = city;
+		this.state = state;
+		this.zip = zip;
+		this.phone = phone;
+		this.sSN = sSN;
+		
 	}
 
 	public String toString() {

@@ -14,6 +14,7 @@ public class AuthorizedPayment extends Payment {
 	 */
 	public boolean isAuthorized() {
 		// TODO - implement AuthorizedPayment.isAuthorized
+		
 		throw new UnsupportedOperationException();
 	}
 

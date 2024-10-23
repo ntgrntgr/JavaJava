@@ -5,20 +5,24 @@ import java.util.*;
 /**
  * This class represents a cashier for the store
  */
-public class Cashier {
+public class Cashier extends Person{
 
-	private String number;
-	private Person person;
+	
 	private ArrayList<Session> sessions;
 	private String password;
+	private Long cashierID;
 
-	public String getNumber() {
-		return this.number;
+	public Long getNumber() {
+		return this.cashierID;
 	}
 
-	public void setNumber(String number) {
-		this.number = number;
+	public void setNumber(Long number) {
+		this.cashierID = number;
 	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
 
 	public Cashier() {
 		// TODO - implement Cashier.Cashier
@@ -27,14 +31,18 @@ public class Cashier {
 
 	/**
 	 * sets the info about a cashier
-	 * params number, person,password
+	 * parameters number, person,password
 	 * @param number
 	 * @param person
 	 * @param password
 	 */
-	public Cashier(String number, String person, String password) {
-		// TODO - implement Cashier.Cashier
-		throw new UnsupportedOperationException();
+	public Cashier(Long number, String password, String name, String address, String city, String state, String zip, String phone, String sSN) {
+		
+		super(name,address,city,state,zip,phone,sSN);
+		setNumber(number);
+		setPassword(password);
+		
+		//throw new UnsupportedOperationException();
 	}
 
 	/**

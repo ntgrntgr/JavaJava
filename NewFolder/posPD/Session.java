@@ -11,9 +11,10 @@ public class Session {
 
 	private Cashier cashier;
 	private Register register;
-	private Collection<Sale> sales;
+	private ArrayList<Sale> sales;
 	private LocalDateTime startDateTime;
 	private LocalDateTime endDateTime;
+	
 
 	public Session() {
 		// TODO - implement Session.Session
