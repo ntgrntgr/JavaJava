@@ -77,7 +77,8 @@ public class Cashier extends Person{
 
 	public String toString() {
 		// TODO - implement Cashier.toString
-		throw new UnsupportedOperationException();
+		return this.getName() ;
+		//throw new UnsupportedOperationException();
 	}
 
 }

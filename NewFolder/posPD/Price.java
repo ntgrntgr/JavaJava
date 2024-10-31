@@ -33,11 +33,12 @@ public class Price {
 	 * @param price
 	 * @param effectiveDate
 	 */
-	public Price(String price, String effectiveDate) {
+	public Price(BigDecimal price, String effectiveDate) {
 		// TODO - implement Price.Price
 		throw new UnsupportedOperationException();
 	}
-
+	
+	
 	/**
 	 * 
 	 * @param date

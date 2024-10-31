@@ -16,6 +16,53 @@ public class Store {
 	private TreeMap<Long,Register> registers;
 	private ArrayList<UPC> upcs;
 	private ArrayList<Long> cashierIDs;
+	private Long registersCount;
+	private Long cashiersCount;
+	private Long itemCount;
+	
+	
+
+	/**
+	 * @return the registersCount
+	 */
+	public Long getRegistersCount() {
+		return registersCount;
+	}
+
+	/**
+	 * @param registersCount the registersCount to set
+	 */
+	public void setRegistersCount(Long registersCount) {
+		this.registersCount = registersCount;
+	}
+
+	/**
+	 * @return the cashiersCount
+	 */
+	public Long getCashiersCount() {
+		return cashiersCount;
+	}
+
+	/**
+	 * @param cashiersCount the cashiersCount to set
+	 */
+	public void setCashiersCount(Long cashiersCount) {
+		this.cashiersCount = cashiersCount;
+	}
+
+	/**
+	 * @return the itemCount
+	 */
+	public Long getItemCount() {
+		return itemCount;
+	}
+
+	/**
+	 * @param itemCount the itemCount to set
+	 */
+	public void setItemCount(Long itemCount) {
+		this.itemCount = itemCount;
+	}
 
 	public Long getNumber() {
 		return this.number;
@@ -40,7 +87,7 @@ public class Store {
 
 	/**
 	 * sets the name and number of the store
-	 * params number of the store number , name for the store name
+	 * parameters number of the store number , name for the store name
 	 * @param numberr
 	 * @param name
 	 */
@@ -51,7 +98,7 @@ public class Store {
 
 	/**
 	 * finds the item for a give UPC
-	 * params upc for the UPC to find an item for
+	 * parameters upc for the UPC to find an item for
 	 * returns item
 	 *  
 	 * @param upc
@@ -63,7 +110,7 @@ public class Store {
 
 	/**
 	 * finds the cashier give the number
-	 * params number for the cashier number
+	 * parameters number for the cashier number
 	 * @param number
 	 */
 	public Cashier findCashierForNumber(String number) {
@@ -73,7 +120,7 @@ public class Store {
 
 	/**
 	 * adds and item
-	 * params item for an item to be added
+	 * parameters item for an item to be added
 	 * @param item
 	 */
 	public void add(Item item) {
@@ -83,7 +130,7 @@ public class Store {
 
 	/**
 	 * adds a upc
-	 * params upc for the UPC to be added
+	 * parameters upc for the UPC to be added
 	 * @param upc
 	 */
 	public void addUPC(UPC upc) {
@@ -93,7 +140,7 @@ public class Store {
 
 	/**
 	 * adds a register
-	 * params register for the register to be added
+	 * parameters register for the register to be added
 	 * @param register
 	 */
 	public void addRegister(Register register) {
@@ -103,7 +150,7 @@ public class Store {
 
 	/**
 	 * adds a cashier
-	 * params cashier for the cashier to be added
+	 * parameters cashier for the cashier to be added
 	 * @param cashier
 	 */
 	public void addCashier(Cashier cashier) {
@@ -113,7 +160,7 @@ public class Store {
 
 	/**
 	 * removes cashier
-	 * params cashier for the cashier to be removed
+	 * parameters cashier for the cashier to be removed
 	 * @param cashier
 	 */
 	public void removeCashier(Cashier cashier) {
@@ -123,7 +170,7 @@ public class Store {
 
 	/**
 	 * adds a tax category
-	 * params tax category for the tax category to be added
+	 * parameters tax category for the tax category to be added
 	 * @param taxCategory
 	 */
 	public void addTaxCategory(TaxCategory taxCategory) {
@@ -133,7 +180,7 @@ public class Store {
 
 	/**
 	 * removes a tax category
-	 * params taxCategory for the category to be removed
+	 * parameters taxCategory for the category to be removed
 	 * @param taxCategory
 	 */
 	public void removeTaxCategory(TaxCategory taxCategory) {
@@ -143,7 +190,7 @@ public class Store {
 
 	/**
 	 * adds a session
-	 * params session for the session to be added
+	 * parameters session for the session to be added
 	 * @param session
 	 */
 	public void addSession(Session session) {
@@ -153,7 +200,7 @@ public class Store {
 
 	/**
 	 * removes a session
-	 * params session for the session to be removed
+	 * parameters session for the session to be removed
 	 * @param session
 	 */
 	public void removeSession(Session session) {
@@ -163,7 +210,7 @@ public class Store {
 
 	/**
 	 * finds a register given the register number
-	 * paramms number for the register number
+	 * parameters number for the register number
 	 * returns register
 	 * @param number
 	 */
@@ -174,8 +221,8 @@ public class Store {
 
 	/**
 	 * finds item for a give number
-	 * params number for the number of the item
-	 * returns Ite,
+	 * parameters number for the number of the item
+	 * returns Item,
 	 * @param number
 	 */
 	public Item findItemForNumber(String number) {
@@ -185,7 +232,7 @@ public class Store {
 
 	/**
 	 * finds the tax category by the name
-	 * params category for the category
+	 * parameters category for the category
 	 * returns TaxCategory
 	 * @param category
 	 */

@@ -7,9 +7,9 @@ import java.util.*;
  */
 public class Item {
 
-	private Long number;
+	private Long number = 0L;
 	private String description;
-	private SaleLineItem saleLineItems;
+	//private SaleLineItem saleLineItems;
 	private ArrayList<UPC> uPCs;
 	private TaxCategory taxCategory;
 	//private Price prices2;
@@ -53,7 +53,7 @@ public class Item {
 	 * @param price
 	 */
 	public void addPrice(Price price, String description) {
-		// 
+		this.prices.put(number,new Price(price.getPrice(),description));
 		
 		throw new UnsupportedOperationException();
 	}
