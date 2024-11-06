@@ -13,7 +13,7 @@ public class Price {
 	private LocalDate effectiveDate;
 	private ArrayList<Item> item;
 	private String description;
-	private Long number;
+	//private Long number;
 
 	public BigDecimal getPrice() {
 		return this.price;
@@ -33,7 +33,7 @@ public class Price {
 	 * @param price
 	 * @param effectiveDate
 	 */
-	public Price(BigDecimal price, String effectiveDate) {
+	public Price(BigDecimal price, String description, String effectiveDate) {
 		// TODO - implement Price.Price
 		throw new UnsupportedOperationException();
 	}

@@ -5,8 +5,8 @@ package posPD;
  */
 public class UPC {
 
-	private int uPC;
-	private Item item;
+	private Long uPC;
+	//private Item item;
 
 	public UPC() {
 		// TODO - implement UPC.UPC
@@ -14,12 +14,32 @@ public class UPC {
 	}
 
 	/**
+	 * this constructor should get this upc value from the store
+	 * The store holds a variable of type Long. This variable will be used to UPCs
 	 * 
 	 * @param upc
 	 */
-	public UPC(String upc) {
+	public UPC(Long upc) {
+		setUPC(upc);
 		// TODO - implement UPC.UPC
 		throw new UnsupportedOperationException();
+	}
+	
+	/**
+	 *Setter for UPC 
+	 *parameter upc representing a newly created UPC
+	 *@param upc
+	 */
+	public void setUPC(Long upc) {
+		this.uPC = upc;
+	}
+	
+	/**
+	 * Getter for UPC
+	 * returns a upc
+	 */
+	public Long getUPC() {
+		return this.uPC;
 	}
 
 	public String toString() {

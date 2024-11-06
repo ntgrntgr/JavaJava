@@ -11,6 +11,17 @@ public class Cashier extends Person{
 	private ArrayList<Session> sessions;
 	private String password;
 	private Long cashierID;
+	private CashierRoles role;
+	
+	
+	
+	public CashierRoles getRole() {
+		return this.role;
+	}
+	
+	public void setRole(CashierRoles rrole) {
+		this.role = rrole;
+	}
 
 	public Long getNumber() {
 		return this.cashierID;
@@ -36,11 +47,12 @@ public class Cashier extends Person{
 	 * @param person
 	 * @param password
 	 */
-	public Cashier(Long number, String password, String name, String address, String city, String state, String zip, String phone, String sSN) {
+	public Cashier(Long number, String password, String name, String address, String city, String state, String zip, String phone, String sSN,CashierRoles role) {
 		
 		super(name,address,city,state,zip,phone,sSN);
 		setNumber(number);
 		setPassword(password);
+		setRole(role);
 		
 		//throw new UnsupportedOperationException();
 	}
@@ -74,10 +86,14 @@ public class Cashier extends Person{
 		// TODO - implement Cashier.isAuthorized
 		throw new UnsupportedOperationException();
 	}
-
+	
+	
+	/**
+	 * display
+	 */
 	public String toString() {
 		// TODO - implement Cashier.toString
-		return this.getName() ;
+		return this.getName() + " " + this.getRole() ;
 		//throw new UnsupportedOperationException();
 	}
 

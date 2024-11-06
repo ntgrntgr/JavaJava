@@ -10,10 +10,19 @@ public class Item {
 	private Long number = 0L;
 	private String description;
 	//private SaleLineItem saleLineItems;
-	private ArrayList<UPC> uPCs;
+	//private ArrayList<UPC> uPCs;
+	private UPC uPC;
+	
 	private TaxCategory taxCategory;
 	//private Price prices2;
-	private TreeMap<Long,Price> prices;
+	private TreeMap<String,Price> prices;
+	
+	public UPC getUPC() {
+		return this.uPC;
+	}
+	public void setUPC(UPC upc) {
+		this.uPC = upc;
+	}
 
 	public Long getNumber() {
 		return this.number;
@@ -42,31 +51,38 @@ public class Item {
 	 * @param number
 	 * @param description
 	 */
-	public Item(Long number, String description) {
+	public Item(String description, Price price) {
 		// TODO - implement Item.Item
 		throw new UnsupportedOperationException();
 	}
 
 	/**
 	 * adds a price
-	 * params price for the price
+	 * parameter price for the price
 	 * @param price
 	 */
 	public void addPrice(Price price, String description) {
-		this.prices.put(number,new Price(price.getPrice(),description));
+		/**remember to come back here and add an effective date
+		 * 
+		 * 
+		 */
+		this.prices.put(description,new Price(price.getPrice(),description,""));
 		
 		throw new UnsupportedOperationException();
 	}
 
 	/**
 	 * removes a price
-	 * params price for the price to be removed
+	 * parameter price for the price to be removed
 	 * @param price
 	 */
-	public void removePrice(Price price) {
+	public void removePrice(String description) {
 		// TODO - implement Item.removePrice
+		this.prices.remove(description);
 		throw new UnsupportedOperationException();
 	}
+	
+	
 	public String toString() {
 		// TODO - implement Item.removePrice
 				throw new UnsupportedOperationException();

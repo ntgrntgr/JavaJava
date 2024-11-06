@@ -21,6 +21,7 @@ public class Store {
 	private Long itemCount;
 	
 	
+	
 
 	/**
 	 * @return the registersCount
@@ -56,12 +57,24 @@ public class Store {
 	public Long getItemCount() {
 		return itemCount;
 	}
+	
+	/**
+	 * this resets the items count
+	 * 
+	 */
+	public void resetItemCount() {
+		this.itemCount = 1L;
+	}
 
 	/**
 	 * @param itemCount the itemCount to set
 	 */
-	public void setItemCount(Long itemCount) {
-		this.itemCount = itemCount;
+	public void incrementItemCount() {
+		this.itemCount++;
+	}
+	
+	public void decrementItemCount() {
+		this.itemCount--;
 	}
 
 	public Long getNumber() {
@@ -93,6 +106,10 @@ public class Store {
 	 */
 	public Store(Long numberr, String name) {
 		// TODO - implement Store.Store
+		this.name = name;
+		this.setRegistersCount(1L);
+		this.setCashiersCount(1L);
+		this.resetItemCount();
 		throw new UnsupportedOperationException();
 	}
 
@@ -123,8 +140,24 @@ public class Store {
 	 * parameters item for an item to be added
 	 * @param item
 	 */
-	public void add(Item item) {
+	public void addItem(Item item) {
 		// TODO - implement Store.add
+		this.items.put(item.getUPC().getUPC(),item);
+		this.upcs.add(item.getUPC());
+		this.incrementItemCount();
+		throw new UnsupportedOperationException();
+		
+	}
+	/**
+	 * remove item
+	 * parameters item for the item to be removed from the store
+	 * @param item
+	 */
+	public void removeItem(Item item) {
+		// TODO - implement Store.remove
+		this.items.remove(item.getUPC().getUPC());
+		this.upcs.remove(item.getUPC());
+		this.decrementItemCount();
 		throw new UnsupportedOperationException();
 	}
 
