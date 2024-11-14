@@ -1,0 +1,3 @@
+--Find a way to make sure that all collections using arrayList checks for duplicates
+++One solution to this would be using Set instead of Array list.
+--

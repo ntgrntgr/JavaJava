@@ -11,6 +11,17 @@ public class TaxRate {
 	private String description;
 	private BigDecimal taxRate;
 	private LocalDate effectiveDate;
+	
+	public String getDescription() {
+		return this.description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	
+	public void setEffectiveDate(LocalDate effectivedate) {
+		this.effectiveDate = effectivedate;
+	}
 
 	public BigDecimal getTaxRate() {
 		return this.taxRate;
@@ -31,9 +42,12 @@ public class TaxRate {
 	 * @param effectiveDate
 	 * @param rate
 	 */
-	public TaxRate(LocalDate effectiveDate, BigDecimal rate) {
+	public TaxRate(LocalDate effectiveDate, BigDecimal rate, String description) {
 		// TODO - implement TaxRate.TaxRate
-		throw new UnsupportedOperationException();
+		setTaxRate(rate);
+		setEffectiveDate(effectiveDate);
+		setDescription(description);
+		//throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -60,7 +74,8 @@ public class TaxRate {
 
 	public String toString() {
 		// TODO - implement TaxRate.toString
-		throw new UnsupportedOperationException();
+		return this.description + " " + effectiveDate +" " + taxRate;
+		//throw new UnsupportedOperationException();
 	}
 
 }

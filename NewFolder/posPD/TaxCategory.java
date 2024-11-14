@@ -10,8 +10,8 @@ import java.util.*;
 public class TaxCategory {
 
 	private String category;
-	private Collection<TaxRate> taxRate;
-	private Calendar effectiveDate;
+	private TreeMap<String,TaxRate> taxRate = new TreeMap<>();
+	//private LocalDate effectiveDate;
 
 	public String getCategory() {
 		return this.category;
@@ -30,17 +30,17 @@ public class TaxCategory {
 	 * sets the category, effectiveDate and TaxRate
 	 * params category,effectiveDate,taxRate
 	 * @param category
-	 * @param effectiveDate
-	 * @param taxRate
+	 *
 	 */
-	public TaxCategory(String category, String effectiveDate, String taxRate) {
+	public TaxCategory(String category) {
+		setCategory(category);
 		// TODO - implement TaxCategory.TaxCategory
-		throw new UnsupportedOperationException();
+		//throw new UnsupportedOperationException();
 	}
 
 	/**
 	 * gets the tax rate for the given date
-	 * params localDate for the date
+	 * parameters localDate for the date
 	 * returns the taxRate
 	 * @param date
 	 */
@@ -54,9 +54,11 @@ public class TaxCategory {
 	 * params taxRate for the tax rate to be added
 	 * @param taxRate
 	 */
-	public void addTaxRate(TaxRate taxRate) {
+	public void addTaxRate(TaxRate taxrate) {
 		// TODO - implement TaxCategory.addTaxRate
-		throw new UnsupportedOperationException();
+		
+		this.taxRate.put(taxrate.getDescription(), taxrate);
+		//throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -66,7 +68,20 @@ public class TaxCategory {
 	 */
 	public void removeTaxRate(TaxRate taxRate) {
 		// TODO - implement TaxCategory.removeTaxRate
-		throw new UnsupportedOperationException();
+		this.taxRate.remove(taxRate.getDescription());
+		//throw new UnsupportedOperationException();
+	}
+	
+	/**
+	 * this is a toString method to represent how a taxCategory might be
+	 * viewed by other classes
+	 */
+	public String toString() {
+		// TODO - implement TaxCategory.toString
+		//return this.getCategory() + " ";
+		 
+		return getCategory()+ " \n" +taxRate.values().toString();
+		//throw new UnsupportedOperationException();
 	}
 
 }

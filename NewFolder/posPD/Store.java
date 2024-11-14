@@ -7,19 +7,41 @@ import java.util.*;
  */
 public class Store {
 
-	private Long number;
+	private Long storeNumber;
 	private String name;
-	private ArrayList<Session> sessions;
-	private ArrayList<TaxCategory> taxCategories;
-	private TreeMap<Long,Item> items;
-	private TreeMap<Long,Cashier> cashiers;
-	private TreeMap<Long,Register> registers;
-	private ArrayList<UPC> upcs;
-	private ArrayList<Long> cashierIDs;
+	private HashSet<Session> sessions = new HashSet<>();
+	private HashSet<TaxCategory> taxCategories = new HashSet<>();
+	private TreeMap<Long,Item> items = new TreeMap<>();
+	private TreeMap<Long,Cashier> cashiers = new TreeMap<>();
+	private TreeMap<Long,Register> registers = new TreeMap<>();
+	private HashSet<UPC> upcs = new HashSet<>();
+	private HashSet<Long> cashierIDs = new HashSet<>();
 	private Long registersCount;
 	private Long cashiersCount;
 	private Long itemCount;
+	private Long upcsCount;
 	
+	/**
+	 * @return upcsCount
+	 */
+	public Long getUpcsCount() {
+		return this.upcsCount;
+	}
+	
+	/**
+	 * sets upcs count
+	 */
+	public void setUpcsCount(Long upc) {
+		this.upcsCount = upc;
+	}
+	
+	public void incrementUpcCount() {
+		this.upcsCount++;
+	}
+	
+	public void resetUPCsCount() {
+		this.upcsCount = 1L;
+	}
 	
 	
 
@@ -78,11 +100,11 @@ public class Store {
 	}
 
 	public Long getNumber() {
-		return this.number;
+		return this.storeNumber;
 	}
 
 	public void setNumber(Long number) {
-		this.number = number;
+		this.storeNumber = number;
 	}
 
 	public String getName() {
@@ -104,14 +126,16 @@ public class Store {
 	 * @param numberr
 	 * @param name
 	 */
-	public Store(Long numberr, String name) {
+	public Store(String name) {
 		// TODO - implement Store.Store
 		this.name = name;
 		this.setRegistersCount(1L);
 		this.setCashiersCount(1L);
 		this.resetItemCount();
-		throw new UnsupportedOperationException();
+		this.resetUPCsCount();
+		//throw new UnsupportedOperationException();
 	}
+	
 
 	/**
 	 * finds the item for a give UPC
@@ -134,6 +158,15 @@ public class Store {
 		// TODO - implement Store.findCashierForNumber
 		throw new UnsupportedOperationException();
 	}
+	
+	/**
+	 * this creates a new item, I want to put this method inside here to ensure this 
+	 * no UPC will be created without the store recording it. 
+	 */
+	public void createItem(String description) {
+		Item templateItem = new Item(description);
+		templateItem.setUPC(this.getUpcsCount());
+	}
 
 	/**
 	 * adds and item
@@ -143,9 +176,9 @@ public class Store {
 	public void addItem(Item item) {
 		// TODO - implement Store.add
 		this.items.put(item.getUPC().getUPC(),item);
-		this.upcs.add(item.getUPC());
-		this.incrementItemCount();
-		throw new UnsupportedOperationException();
+		addUPC(item.getUPC());
+		incrementItemCount();
+		//throw new UnsupportedOperationException();
 		
 	}
 	/**
@@ -158,7 +191,7 @@ public class Store {
 		this.items.remove(item.getUPC().getUPC());
 		this.upcs.remove(item.getUPC());
 		this.decrementItemCount();
-		throw new UnsupportedOperationException();
+		//throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -168,7 +201,11 @@ public class Store {
 	 */
 	public void addUPC(UPC upc) {
 		// TODO - implement Store.addUPC
-		throw new UnsupportedOperationException();
+		this.upcs.add(upc);
+		incrementUpcCount();
+		//throw new UnsupportedOperationException();
+		
+		
 	}
 
 	/**
@@ -276,7 +313,8 @@ public class Store {
 
 	public String toString() {
 		// TODO - implement Store.toString
-		throw new UnsupportedOperationException();
+		//throw new UnsupportedOperationException();
+		return items.toString();
 	}
 
 }

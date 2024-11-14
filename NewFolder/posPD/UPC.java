@@ -12,6 +12,14 @@ public class UPC {
 		// TODO - implement UPC.UPC
 		throw new UnsupportedOperationException();
 	}
+	
+	/**
+	 * this constructor will take a long value and use it to create a UPC
+	 * @param Long
+	 */
+	public UPC(Long upc) {
+		setUPC(upc);
+	}
 
 	/**
 	 * this constructor should get this upc value from the store
@@ -19,10 +27,11 @@ public class UPC {
 	 * 
 	 * @param upc
 	 */
-	public UPC(Long upc) {
-		setUPC(upc);
+	public UPC(Store store) {
+		setUPC(store.getUpcsCount());
+		store.addUPC(this);
 		// TODO - implement UPC.UPC
-		throw new UnsupportedOperationException();
+		//throw new UnsupportedOperationException();
 	}
 	
 	/**
@@ -44,7 +53,8 @@ public class UPC {
 
 	public String toString() {
 		// TODO - implement UPC.toString
-		throw new UnsupportedOperationException();
+		return "" + getUPC();
+		//throw new UnsupportedOperationException();
 	}
 
 }

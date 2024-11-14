@@ -14,8 +14,8 @@ public class Item {
 	private UPC uPC;
 	
 	private TaxCategory taxCategory;
-	//private Price prices2;
-	private TreeMap<String,Price> prices;
+	//private Price prices;
+	private TreeMap<String,Price> prices = new TreeMap<>();
 	
 	public UPC getUPC() {
 		return this.uPC;
@@ -47,13 +47,14 @@ public class Item {
 
 	/**
 	 * sets the number and description of the item
-	 * params number for number , description for the description
+	 * parameter number for number , description for the description
 	 * @param number
 	 * @param description
 	 */
-	public Item(String description, Price price) {
+	public Item(String description) {
 		// TODO - implement Item.Item
-		throw new UnsupportedOperationException();
+		setDescription(description);
+		//throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -66,9 +67,9 @@ public class Item {
 		 * 
 		 * 
 		 */
-		this.prices.put(description,new Price(price.getPrice(),description,""));
+		this.prices.put(description,new Price(price.getPrice(),description,price.getEffectiveDate()));
 		
-		throw new UnsupportedOperationException();
+		//throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -79,13 +80,15 @@ public class Item {
 	public void removePrice(String description) {
 		// TODO - implement Item.removePrice
 		this.prices.remove(description);
-		throw new UnsupportedOperationException();
+		//throw new UnsupportedOperationException();
 	}
+	
 	
 	
 	public String toString() {
 		// TODO - implement Item.removePrice
-				throw new UnsupportedOperationException();
+		return this.getUPC() + " " + this.getDescription() + " " + this.prices.get("Standard").toString();
+				//throw new UnsupportedOperationException();
 	}
 
 }

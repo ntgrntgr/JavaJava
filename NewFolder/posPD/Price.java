@@ -22,6 +22,18 @@ public class Price {
 	public void setPrice(BigDecimal price) {
 		this.price = price;
 	}
+	public String getDescription() {
+		return this.description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	public LocalDate getEffectiveDate() {
+		return this.effectiveDate;
+	}
+	public void setEffectiveDate(LocalDate effectivedate) {
+		this.effectiveDate = effectivedate;
+	}
 
 	public Price() {
 		// TODO - implement Price.Price
@@ -33,9 +45,12 @@ public class Price {
 	 * @param price
 	 * @param effectiveDate
 	 */
-	public Price(BigDecimal price, String description, String effectiveDate) {
+	public Price(BigDecimal price, String description, LocalDate effectiveDate) {
 		// TODO - implement Price.Price
-		throw new UnsupportedOperationException();
+		setPrice(price);
+		setDescription(description);
+		setEffectiveDate(effectiveDate);
+		//throw new UnsupportedOperationException();
 	}
 	
 	
@@ -68,7 +83,8 @@ public class Price {
 
 	public String toString() {
 		// TODO - implement Price.toString
-		throw new UnsupportedOperationException();
+		return this.getPrice() + " ";
+		//throw new UnsupportedOperationException();
 	}
 
 }
