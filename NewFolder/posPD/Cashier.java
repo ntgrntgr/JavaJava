@@ -93,7 +93,7 @@ public class Cashier extends Person{
 	 */
 	public String toString() {
 		// TODO - implement Cashier.toString
-		return this.getName() + " " + this.getRole() ;
+		return " " +this.getName() + " " + this.getRole() ;
 		//throw new UnsupportedOperationException();
 	}
 

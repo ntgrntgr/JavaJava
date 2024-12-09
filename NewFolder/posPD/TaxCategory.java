@@ -73,6 +73,14 @@ public class TaxCategory {
 	}
 	
 	/**
+	 * This should return a taxRate
+	 * @param description of the taxRate as s string
+	 */
+	public TaxRate getTaxRate(String description) {
+		return this.taxRate.get(description);
+	}
+	
+	/**
 	 * this is a toString method to represent how a taxCategory might be
 	 * viewed by other classes
 	 */
@@ -80,7 +88,7 @@ public class TaxCategory {
 		// TODO - implement TaxCategory.toString
 		//return this.getCategory() + " ";
 		 
-		return getCategory()+ " \n" +taxRate.values().toString();
+		return this.category;
 		//throw new UnsupportedOperationException();
 	}
 

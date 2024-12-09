@@ -98,6 +98,18 @@ public class Store {
 	public void decrementItemCount() {
 		this.itemCount--;
 	}
+	public void incrementCashierCount() {
+		this.cashiersCount++;
+	}
+	public void decrementCashierCount() {
+		this.cashiersCount--;
+	}
+	public void incrementRegisterCount() {
+		this.registersCount++;
+	}
+	public void decrementRegisterCount() {
+		this.registersCount--;
+	}
 
 	public Long getNumber() {
 		return this.storeNumber;
@@ -146,6 +158,7 @@ public class Store {
 	 */
 	public Item findItemForUPC(String upc) {
 		// TODO - implement Store.findItemForUPC
+		
 		throw new UnsupportedOperationException();
 	}
 
@@ -165,7 +178,9 @@ public class Store {
 	 */
 	public void createItem(String description) {
 		Item templateItem = new Item(description);
-		templateItem.setUPC(this.getUpcsCount());
+		UPC templateUPC = new UPC(this.getUpcsCount());
+		templateItem.setUPC(templateUPC);
+		addItem(templateItem);
 	}
 
 	/**
@@ -193,6 +208,14 @@ public class Store {
 		this.decrementItemCount();
 		//throw new UnsupportedOperationException();
 	}
+	/**
+	 * retrieves all items in the store
+	 * takes no parameters
+	 */
+	public TreeMap<Long,Item> getItems(){
+		System.out.println("Store has " + (getItemCount() -1) + " Items");
+		return items;
+	}
 
 	/**
 	 * adds a upc
@@ -215,7 +238,18 @@ public class Store {
 	 */
 	public void addRegister(Register register) {
 		// TODO - implement Store.addRegister
-		throw new UnsupportedOperationException();
+		//throw new UnsupportedOperationException();
+		this.registers.put(register.getNumber(), register);
+		this.incrementRegisterCount();
+		//System.out.println("Success");
+	}
+	
+	/**
+	 * this returns all available registers in the store
+	 */
+	public TreeMap<Long,Register> getRegisters(){
+		System.out.println("Store has " + " " + (this.getRegistersCount() - 1) + " Registers" );
+		return this.registers;
 	}
 
 	/**
@@ -225,7 +259,10 @@ public class Store {
 	 */
 	public void addCashier(Cashier cashier) {
 		// TODO - implement Store.addCashier
-		throw new UnsupportedOperationException();
+		//throw new UnsupportedOperationException();
+		this.cashiers.put(cashier.getNumber(),cashier);
+		incrementCashierCount();
+		
 	}
 
 	/**
@@ -236,6 +273,17 @@ public class Store {
 	public void removeCashier(Cashier cashier) {
 		// TODO - implement Store.removeCashier
 		throw new UnsupportedOperationException();
+	}
+	
+	/**
+	 * This should return all the cashiers present in this store
+	 * takes no parameters
+	 * @return cashiers
+	 */
+	public TreeMap<Long,Cashier> getCashiers(){
+		
+		System.out.println("Store has " + (getCashiersCount()-1) + " Cashiers");
+		return this.cashiers;
 	}
 
 	/**
@@ -256,6 +304,14 @@ public class Store {
 	public void removeTaxCategory(TaxCategory taxCategory) {
 		// TODO - implement Store.removeTaxCategory
 		throw new UnsupportedOperationException();
+	}
+	/**
+	 * This method should create/start a session
+	 * 
+	 */
+	public void startSession(Cashier cashier, Register register, Item item) {
+		Session templateSession = new Session();
+		
 	}
 
 	/**

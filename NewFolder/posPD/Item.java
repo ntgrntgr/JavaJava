@@ -83,11 +83,35 @@ public class Item {
 		//throw new UnsupportedOperationException();
 	}
 	
+	/**
+	 * this should return a price that can be used for this item
+	 * @return price
+	 */
+	public Price getPrice(String priceType) {
+		return this.prices.get(priceType);
+	}
+	
+	/**
+	 * This is a getter for tax category
+	 * should return this item's tax category
+	 */
+	public TaxCategory getTaxCategory() {
+		return this.taxCategory;
+	}
+	
+	/**
+	 * This is a setter for tax category
+	 * @param taxCategory
+	 */
+	public void setTaxCategory(TaxCategory taxcategory) {
+		this.taxCategory = taxcategory;
+	}
+	
 	
 	
 	public String toString() {
 		// TODO - implement Item.removePrice
-		return this.getUPC() + " " + this.getDescription() + " " + this.prices.get("Standard").toString();
+		return " " + this.getDescription() + " " + this.prices.get("Standard").toString() + "'" + this.getTaxCategory().toString() +"'" ;
 				//throw new UnsupportedOperationException();
 	}
 

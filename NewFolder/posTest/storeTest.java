@@ -16,6 +16,7 @@ public class storeTest {
 		Long sampleLongThree = sampleLong + 2L;
 		BigDecimal sampleBigDecimal = new BigDecimal("2.29");
 		BigDecimal sampleRate = new BigDecimal("0.07");
+		
 		LocalDate today = LocalDate.now();
 		LocalDate anotherSampleDate = LocalDate.of(2022, 1, 1);
 		//System.out.println(anotherSampleDate);
@@ -29,13 +30,17 @@ public class storeTest {
 		TaxCategory sampleTaxCategory = new TaxCategory("Digital Goods");
 		TaxCategory sampleTaxCategoryTwo = new TaxCategory("Alcohol & Tobacco");
 		TaxCategory sampleTaxCategoryThree = new TaxCategory("Food & Beverages");
+		TaxCategory sampleTaxCategoryFour = new TaxCategory("Vehicle supplies");
 		
-		TaxRate sampleTaxRate = new TaxRate(anotherSampleDate,sampleRate,"Standard rate");
+		
+		TaxRate sampleTaxRate = new TaxRate(anotherSampleDate,sampleRate,"Standard");
 		TaxRate sampleTaxRateTwo = new TaxRate(anotherSampleDate.plusDays(1L),sampleRate.add(new BigDecimal("0.05")),"Holiday-Special");
 		TaxRate sampleTaxRateThree = new TaxRate(anotherSampleDate.plusDays(2L),sampleRate.add(new BigDecimal("0.15")),"Easter-Special");
 		sampleTaxCategory.addTaxRate(sampleTaxRate);
 		sampleTaxCategory.addTaxRate(sampleTaxRateTwo);
 		sampleTaxCategory.addTaxRate(sampleTaxRateThree);
+		sampleTaxCategoryFour.addTaxRate(sampleTaxRate);
+		
 		
 		
 		UPC sampleUPC = new UPC(sampleLong);
@@ -50,6 +55,10 @@ public class storeTest {
 		sampleItemTwo.setUPC(sampleUPCTwo);
 		sampleItemThree.setUPC(sampleUPCThree);
 		
+		sampleItem.setTaxCategory(sampleTaxCategoryFour);
+		sampleItemTwo.setTaxCategory(sampleTaxCategoryFour);
+		sampleItemThree.setTaxCategory(sampleTaxCategoryFour);
+		
 		//System.out.println(samplePriceThree.getEffectiveDate() + " " + samplePriceThree.getPrice());
 		
 		sampleItem.addPrice(samplePrice, "Standard");
@@ -60,9 +69,23 @@ public class storeTest {
 		Cashier Mugisha = new Cashier(Id,"newpassword","Mugisha","2501 E Memorial rd","Edmond","Oklahoma","73013","585-439-0505","111111111", CashierRoles.CLERK);
 		Cashier Manzi = new Cashier(sampleID,"ManziPassword","Manzi","2501 E Memorial rd", "Edmond","Oklahoma","73013","585-123-1234","222222222",CashierRoles.CLERK);
 		Cashier Muhire = new Cashier(sampleIdTwo,"MuhirePassword","Muhire","2501 E Memorial rd","Norman","Oklahoma","73213","405-123-1234","333333333",CashierRoles.MANAGER);
-		System.out.println(Mugisha.toString() +"\n" + Manzi.toString() + "\n" + Muhire.toString());
+		//System.out.println(Mugisha.toString() +"\n" + Manzi.toString() + "\n" + Muhire.toString());
 		
-		//System.out.println(today);
+		
+		
+		Register sampleRegister = new Register(new CashDrawer("100"),sampleLong);
+		Register sampleRegisterTwo = new Register(new CashDrawer("200"),sampleLongTwo);
+		//System.out.println(sampleRegister.getCashDrawer().getCashAmount());
+		
+		SaleLineItem sampleSaleLineItem = new SaleLineItem(sampleItemTwo,2);
+		SaleLineItem sampleSaleLineItemTwo = new SaleLineItem(sampleItemThree,4);
+		Sale sampleSale = new Sale();
+		sampleSale.addSaleLineItem(sampleSaleLineItem);
+		sampleSale.addSaleLineItem(sampleSaleLineItemTwo);
+		
+		
+		
+		//System.out.println(today)
 		//System.out.println(Id);
 		//System.out.println(sampleTaxRate.toString());
 		
@@ -77,11 +100,33 @@ public class storeTest {
 		sampleStore.addItem(sampleItemTwo);
 		sampleStore.addItem(sampleItemThree);
 		
-		Item sampleItemFour = new Item("Brake Pads");
-		UPC sampleUPCFour = new UPC(sampleStore.getUpcsCount());
-		sampleUPCFour.setUPC(sampleUPCFour.getUPC());
+		sampleStore.addCashier(Muhire);
+		sampleStore.addCashier(Mugisha);
+		sampleStore.addCashier(Manzi);
 		
-		System.out.println(sampleStore.toString());
+		sampleStore.addRegister(sampleRegister);
+		sampleStore.addRegister(sampleRegisterTwo);
+		
+		Session sampleSession = new Session(Manzi,sampleRegister);
+		sampleSession.addSale(sampleSale);
+		
+		
+		System.out.println("--Items--");
+		System.out.println(sampleStore.getItems());
+		System.out.println("--Cashiers--");
+		System.out.println(sampleStore.getCashiers());
+		System.out.println("--Registers--");
+		System.out.println(sampleStore.getRegisters());
+		
+		System.out.println("--Session--");
+		System.out.println(sampleSession.toString());
+		
+//		System.out.println("SubToTal for this item " + sampleSaleLineItem.calcSubTotal().toString());
+//		System.out.println("SubTotal for this item " + sampleSaleLineItemTwo.calcSubTotal().toString());
+//		System.out.println("SubTotal: " +sampleSale.calcSubTotal() + " Tax: " + sampleSale.calcTax()+ "");
+//		System.out.println("Total :" + sampleSale.calcTotal());
+//		
+		//System.out.println(sampleItemThree.getPrice("Standard"));
 		//System.out.println(sampleStore.getItemCount());
 		//System.out.println(sampleLongThree);
 		//System.out.println(sampleUPC.toString() + " " + sampleUPCTwo.toString() + " " + sampleUPCThree.toString());

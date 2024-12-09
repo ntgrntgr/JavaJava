@@ -11,14 +11,18 @@ import java.util.*;
  */
 public class Sale {
 
-	private Payment payments;
+	private ArrayList<Payment> payments;
 	private ArrayList<SaleLineItem> saleLineItems;
 	private LocalDateTime dateTime;
 	private boolean taxFree;
 
 	public Sale() {
 		// TODO - implement Sale.Sale
-		throw new UnsupportedOperationException();
+		//throw new UnsupportedOperationException();
+		payments= new ArrayList<Payment>();
+		 saleLineItems= new ArrayList<SaleLineItem>();
+		 dateTime=LocalDateTime.now();
+		
 	}
 
 	/**
@@ -28,7 +32,7 @@ public class Sale {
 	 */
 	public Sale(String taxFree) {
 		// TODO - implement Sale.Sale
-		throw new UnsupportedOperationException();
+		//throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -56,9 +60,10 @@ public class Sale {
 	 * params sli for the sale line item to be added
 	 * @param sli
 	 */
-	public void addSaleLineItem(SaleLineItem sli) {
+	public void addSaleLineItem(SaleLineItem saleLineItem) {
 		// TODO - implement Sale.addSaleLineItem
-		throw new UnsupportedOperationException();
+		//throw new UnsupportedOperationException();
+		saleLineItems.add(saleLineItem);
 	}
 
 	/**
@@ -77,7 +82,9 @@ public class Sale {
 	 */
 	public BigDecimal calcTotal() {
 		// TODO - implement Sale.calcTotal
-		throw new UnsupportedOperationException();
+		//throw new UnsupportedOperationException();
+		return this.calcSubTotal().add(this.calcTax());
+		
 	}
 
 	/**
@@ -86,7 +93,12 @@ public class Sale {
 	 */
 	public BigDecimal calcSubTotal() {
 		// TODO - implement Sale.calcSubTotal
-		throw new UnsupportedOperationException();
+		BigDecimal total =  BigDecimal.ZERO;
+		for(SaleLineItem item: saleLineItems) {
+			total  = total.add(item.calcSubTotal());
+		}
+		return total;
+		//throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -95,7 +107,12 @@ public class Sale {
 	 */
 	public BigDecimal calcTax() {
 		// TODO - implement Sale.calcTax
-		throw new UnsupportedOperationException();
+		//throw new UnsupportedOperationException();
+		BigDecimal total =  BigDecimal.ZERO;
+		for(SaleLineItem item: saleLineItems) {
+			total  = total.add(item.calcTax());
+		}
+		return total;
 	}
 
 	/**

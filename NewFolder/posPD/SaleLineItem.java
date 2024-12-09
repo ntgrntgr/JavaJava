@@ -20,9 +20,9 @@ public class SaleLineItem {
 		this.quantity = quantity;
 	}
 
-	public void saleLineItem() {
+	public SaleLineItem() {
 		// TODO - implement SaleLineItem.saleLineItem
-		throw new UnsupportedOperationException();
+		//throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -31,19 +31,23 @@ public class SaleLineItem {
 	 * @param item
 	 * @param quantitee
 	 */
-	public void saleLineItem(Sale sale, Item item, String quantitee) {
+	public SaleLineItem( Item item, int quantitee) {
 		// TODO - implement SaleLineItem.saleLineItem
-		throw new UnsupportedOperationException();
+		this.item = item;
+		this.quantity = quantitee;
+		//throw new UnsupportedOperationException();
 	}
 
 	public BigDecimal calcSubTotal() {
 		// TODO - implement SaleLineItem.calcSubTotal
-		throw new UnsupportedOperationException();
+		//throw new UnsupportedOperationException();
+		return this.item.getPrice("Standard").getPrice().multiply(new BigDecimal(this.getQuantity()));
 	}
 
 	public BigDecimal calcTax() {
 		// TODO - implement SaleLineItem.calcTax
-		throw new UnsupportedOperationException();
+		//throw new UnsupportedOperationException();
+		return this.item.getTaxCategory().getTaxRate("Standard").getTaxRate();
 	}
 
 	public String toString() {
